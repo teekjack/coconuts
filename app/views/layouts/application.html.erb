@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+		<meta name="keywords" content="Blood Relative, Thalassemia, Major, Minor, Blood, India, Genetic, Nimisha, Mukerji, Mark, Ratzlaff" >
+	<meta name="description" content="Blood Relative: Mumbai's Forgotten Children is a cinéma vérité documentary that journeys into the heart of India, the city of Mumbai, and chronicles one man's fight to change government policy and get free medical treatment to children dying of Thalassemia Major.">
+		<link rel="shortcut icon" href="/favicon.ico" />
+    <title><%= @title %></title>
+		<link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml" />
+    <%= csrf_meta_tag %>
+		<%= render 'layouts/stylesheets' %>
+		<%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js","http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js", 'rails', 'application' %> 
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-21957789-1']);
+  _gaq.push(['_setDomainName', '.bloodrelative.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+	</head>
+
+  <body>	
+		<div class="headerbg" style="height:300px;">		
+			<div class="container">
+				<header style="background-image:url(../images/logo<%=rand(6)%>.jpg);">
+						<div class="container" style="text-align:right; height:300px;"> 
+						  <div style="position:relative; text-align:right; top:50px; z-index: 1; background:transparent; opacity:0.8">
+							 <%=link_to image_tag('logotitle.png'), root_path %>	
+						  </div>
+							<div style="position:relative; text-align:right; top: 50px; z-index: 1; background:transparent; opacity:0.8">
+							 <%=link_to image_tag('logosubtitle.png'), root_path %>			
+						  </div>
+					</div>
+    		</header>	
+			<div style="background-color:#3b3b3b">
+			<%= render 'layouts/navbar' %>
+			</div>		
+			</div>
+		</div>
+		<div class="container" style="background:white; margin-bottom:0;">
+			<br/><br/>
+			<table style="margin-top: 0px; width:970px; margin:0;">
+		  	<tr>
+					<td style="vertical-align:top;">		
+						<section>
+							<% flash.each do |key, value| %>
+      		 		<%= content_tag(:div, value, :class => "flash #{key}") %>
+      				<% end %>
+			  			<%= yield %>
+						</section>
+					</td>
+					<td style="width:310px; text-align:center; vertical-align:top; border-color:black; border-width:3px;">
+						<section style="margin-top:30px;">
+							<%= render 'layouts/sidebar' %>
+						</section>				
+					</td>
+				</tr>
+			</table>
+			<div style="text-align:center;">
+			<%= render 'layouts/footer'%>
+			<%= debug(params) if Rails.env.development? %>
+		</div>
+		</div>
+		
+	</body>
+</html>
+
